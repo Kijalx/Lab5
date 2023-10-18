@@ -40,4 +40,9 @@ public class FeignController {
     public TodoResponse getDataById(@PathVariable int id){
         return feignService.fetchDataById(id);
     }
+
+    @GetMapping("/feignbyid/{id}")
+    public TodoResponse getId(@PathVariable int id){
+        return feignService.extractFromList(id);
+    }
 }
