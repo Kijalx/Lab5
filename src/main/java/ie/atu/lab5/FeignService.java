@@ -2,10 +2,11 @@ package ie.atu.lab5;
 
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FeignService {
     private final TodoClient todoClient;
-
 
     public FeignService(TodoClient todoClient) {
         this.todoClient = todoClient;
@@ -22,5 +23,13 @@ public class FeignService {
             e.printStackTrace();
         }
         return td;
+    }
+
+    public List<TodoResponse> fetchAllData(){
+        return todoClient.fetchAllData();
+    }
+
+    public TodoResponse fetchDataById(int id){
+        return todoClient.fetchDataById(id);
     }
 }
